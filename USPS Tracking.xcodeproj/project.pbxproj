@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AF0FDD782012FFB800ACEBED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0FDD772012FFB800ACEBED /* AppDelegate.swift */; };
+		AF0FDD7A2012FFB800ACEBED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0FDD792012FFB800ACEBED /* ViewController.swift */; };
+		AF0FDD7D2012FFB800ACEBED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF0FDD7B2012FFB800ACEBED /* Main.storyboard */; };
+		AF0FDD7F2012FFB800ACEBED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF0FDD7E2012FFB800ACEBED /* Assets.xcassets */; };
+		AF0FDD822012FFB800ACEBED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF0FDD802012FFB800ACEBED /* LaunchScreen.storyboard */; };
+		AF0FDD8D2012FFB800ACEBED /* USPS_TrackingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0FDD8C2012FFB800ACEBED /* USPS_TrackingTests.swift */; };
+		AF0FDD982012FFB800ACEBED /* USPS_TrackingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0FDD972012FFB800ACEBED /* USPS_TrackingUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AF0FDD892012FFB800ACEBED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF0FDD6C2012FFB700ACEBED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF0FDD732012FFB800ACEBED;
+			remoteInfo = "USPS Tracking";
+		};
+		AF0FDD942012FFB800ACEBED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF0FDD6C2012FFB700ACEBED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF0FDD732012FFB800ACEBED;
+			remoteInfo = "USPS Tracking";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AF0FDD742012FFB800ACEBED /* USPS Tracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "USPS Tracking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF0FDD772012FFB800ACEBED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AF0FDD792012FFB800ACEBED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AF0FDD7C2012FFB800ACEBED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AF0FDD7E2012FFB800ACEBED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AF0FDD812012FFB800ACEBED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AF0FDD832012FFB800ACEBED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF0FDD882012FFB800ACEBED /* USPS TrackingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "USPS TrackingTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF0FDD8C2012FFB800ACEBED /* USPS_TrackingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USPS_TrackingTests.swift; sourceTree = "<group>"; };
+		AF0FDD8E2012FFB800ACEBED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF0FDD932012FFB800ACEBED /* USPS TrackingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "USPS TrackingUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF0FDD972012FFB800ACEBED /* USPS_TrackingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USPS_TrackingUITests.swift; sourceTree = "<group>"; };
+		AF0FDD992012FFB800ACEBED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AF0FDD712012FFB800ACEBED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF0FDD852012FFB800ACEBED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF0FDD902012FFB800ACEBED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AF0FDD6B2012FFB700ACEBED = {
+			isa = PBXGroup;
+			children = (
+				AF0FDD762012FFB800ACEBED /* USPS Tracking */,
+				AF0FDD8B2012FFB800ACEBED /* USPS TrackingTests */,
+				AF0FDD962012FFB800ACEBED /* USPS TrackingUITests */,
+				AF0FDD752012FFB800ACEBED /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AF0FDD752012FFB800ACEBED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF0FDD742012FFB800ACEBED /* USPS Tracking.app */,
+				AF0FDD882012FFB800ACEBED /* USPS TrackingTests.xctest */,
+				AF0FDD932012FFB800ACEBED /* USPS TrackingUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AF0FDD762012FFB800ACEBED /* USPS Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				AF0FDD772012FFB800ACEBED /* AppDelegate.swift */,
+				AF0FDD792012FFB800ACEBED /* ViewController.swift */,
+				AF0FDD7B2012FFB800ACEBED /* Main.storyboard */,
+				AF0FDD7E2012FFB800ACEBED /* Assets.xcassets */,
+				AF0FDD802012FFB800ACEBED /* LaunchScreen.storyboard */,
+				AF0FDD832012FFB800ACEBED /* Info.plist */,
+			);
+			path = "USPS Tracking";
+			sourceTree = "<group>";
+		};
+		AF0FDD8B2012FFB800ACEBED /* USPS TrackingTests */ = {
+			isa = PBXGroup;
+			children = (
+				AF0FDD8C2012FFB800ACEBED /* USPS_TrackingTests.swift */,
+				AF0FDD8E2012FFB800ACEBED /* Info.plist */,
+			);
+			path = "USPS TrackingTests";
+			sourceTree = "<group>";
+		};
+		AF0FDD962012FFB800ACEBED /* USPS TrackingUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AF0FDD972012FFB800ACEBED /* USPS_TrackingUITests.swift */,
+				AF0FDD992012FFB800ACEBED /* Info.plist */,
+			);
+			path = "USPS TrackingUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AF0FDD732012FFB800ACEBED /* USPS Tracking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF0FDD9C2012FFB800ACEBED /* Build configuration list for PBXNativeTarget "USPS Tracking" */;
+			buildPhases = (
+				AF0FDD702012FFB800ACEBED /* Sources */,
+				AF0FDD712012FFB800ACEBED /* Frameworks */,
+				AF0FDD722012FFB800ACEBED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "USPS Tracking";
+			productName = "USPS Tracking";
+			productReference = AF0FDD742012FFB800ACEBED /* USPS Tracking.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AF0FDD872012FFB800ACEBED /* USPS TrackingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF0FDD9F2012FFB800ACEBED /* Build configuration list for PBXNativeTarget "USPS TrackingTests" */;
+			buildPhases = (
+				AF0FDD842012FFB800ACEBED /* Sources */,
+				AF0FDD852012FFB800ACEBED /* Frameworks */,
+				AF0FDD862012FFB800ACEBED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AF0FDD8A2012FFB800ACEBED /* PBXTargetDependency */,
+			);
+			name = "USPS TrackingTests";
+			productName = "USPS TrackingTests";
+			productReference = AF0FDD882012FFB800ACEBED /* USPS TrackingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AF0FDD922012FFB800ACEBED /* USPS TrackingUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF0FDDA22012FFB800ACEBED /* Build configuration list for PBXNativeTarget "USPS TrackingUITests" */;
+			buildPhases = (
+				AF0FDD8F2012FFB800ACEBED /* Sources */,
+				AF0FDD902012FFB800ACEBED /* Frameworks */,
+				AF0FDD912012FFB800ACEBED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AF0FDD952012FFB800ACEBED /* PBXTargetDependency */,
+			);
+			name = "USPS TrackingUITests";
+			productName = "USPS TrackingUITests";
+			productReference = AF0FDD932012FFB800ACEBED /* USPS TrackingUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AF0FDD6C2012FFB700ACEBED /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Faiz Surani";
+				TargetAttributes = {
+					AF0FDD732012FFB800ACEBED = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					AF0FDD872012FFB800ACEBED = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AF0FDD732012FFB800ACEBED;
+					};
+					AF0FDD922012FFB800ACEBED = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AF0FDD732012FFB800ACEBED;
+					};
+				};
+			};
+			buildConfigurationList = AF0FDD6F2012FFB700ACEBED /* Build configuration list for PBXProject "USPS Tracking" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AF0FDD6B2012FFB700ACEBED;
+			productRefGroup = AF0FDD752012FFB800ACEBED /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AF0FDD732012FFB800ACEBED /* USPS Tracking */,
+				AF0FDD872012FFB800ACEBED /* USPS TrackingTests */,
+				AF0FDD922012FFB800ACEBED /* USPS TrackingUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AF0FDD722012FFB800ACEBED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF0FDD822012FFB800ACEBED /* LaunchScreen.storyboard in Resources */,
+				AF0FDD7F2012FFB800ACEBED /* Assets.xcassets in Resources */,
+				AF0FDD7D2012FFB800ACEBED /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF0FDD862012FFB800ACEBED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF0FDD912012FFB800ACEBED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AF0FDD702012FFB800ACEBED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF0FDD7A2012FFB800ACEBED /* ViewController.swift in Sources */,
+				AF0FDD782012FFB800ACEBED /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF0FDD842012FFB800ACEBED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF0FDD8D2012FFB800ACEBED /* USPS_TrackingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF0FDD8F2012FFB800ACEBED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF0FDD982012FFB800ACEBED /* USPS_TrackingUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AF0FDD8A2012FFB800ACEBED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AF0FDD732012FFB800ACEBED /* USPS Tracking */;
+			targetProxy = AF0FDD892012FFB800ACEBED /* PBXContainerItemProxy */;
+		};
+		AF0FDD952012FFB800ACEBED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AF0FDD732012FFB800ACEBED /* USPS Tracking */;
+			targetProxy = AF0FDD942012FFB800ACEBED /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AF0FDD7B2012FFB800ACEBED /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF0FDD7C2012FFB800ACEBED /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AF0FDD802012FFB800ACEBED /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF0FDD812012FFB800ACEBED /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AF0FDD9A2012FFB800ACEBED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AF0FDD9B2012FFB800ACEBED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AF0FDD9D2012FFB800ACEBED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XRS3658ZTC;
+				INFOPLIST_FILE = "USPS Tracking/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Faiz.USPS-Tracking";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AF0FDD9E2012FFB800ACEBED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XRS3658ZTC;
+				INFOPLIST_FILE = "USPS Tracking/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Faiz.USPS-Tracking";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AF0FDDA02012FFB800ACEBED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XRS3658ZTC;
+				INFOPLIST_FILE = "USPS TrackingTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Faiz.USPS-TrackingTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/USPS Tracking.app/USPS Tracking";
+			};
+			name = Debug;
+		};
+		AF0FDDA12012FFB800ACEBED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XRS3658ZTC;
+				INFOPLIST_FILE = "USPS TrackingTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Faiz.USPS-TrackingTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/USPS Tracking.app/USPS Tracking";
+			};
+			name = Release;
+		};
+		AF0FDDA32012FFB800ACEBED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XRS3658ZTC;
+				INFOPLIST_FILE = "USPS TrackingUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Faiz.USPS-TrackingUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "USPS Tracking";
+			};
+			name = Debug;
+		};
+		AF0FDDA42012FFB800ACEBED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XRS3658ZTC;
+				INFOPLIST_FILE = "USPS TrackingUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Faiz.USPS-TrackingUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "USPS Tracking";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AF0FDD6F2012FFB700ACEBED /* Build configuration list for PBXProject "USPS Tracking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF0FDD9A2012FFB800ACEBED /* Debug */,
+				AF0FDD9B2012FFB800ACEBED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF0FDD9C2012FFB800ACEBED /* Build configuration list for PBXNativeTarget "USPS Tracking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF0FDD9D2012FFB800ACEBED /* Debug */,
+				AF0FDD9E2012FFB800ACEBED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF0FDD9F2012FFB800ACEBED /* Build configuration list for PBXNativeTarget "USPS TrackingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF0FDDA02012FFB800ACEBED /* Debug */,
+				AF0FDDA12012FFB800ACEBED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF0FDDA22012FFB800ACEBED /* Build configuration list for PBXNativeTarget "USPS TrackingUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF0FDDA32012FFB800ACEBED /* Debug */,
+				AF0FDDA42012FFB800ACEBED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AF0FDD6C2012FFB700ACEBED /* Project object */;
+}
