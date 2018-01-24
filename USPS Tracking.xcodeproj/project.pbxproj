@@ -7,13 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26A492828944CD9ECF9A3FCA /* Pods_USPS_TrackingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9353DD73133939B03EA36A7 /* Pods_USPS_TrackingTests.framework */; };
 		AF0FDD782012FFB800ACEBED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0FDD772012FFB800ACEBED /* AppDelegate.swift */; };
-		AF0FDD7A2012FFB800ACEBED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0FDD792012FFB800ACEBED /* ViewController.swift */; };
 		AF0FDD7D2012FFB800ACEBED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF0FDD7B2012FFB800ACEBED /* Main.storyboard */; };
 		AF0FDD7F2012FFB800ACEBED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF0FDD7E2012FFB800ACEBED /* Assets.xcassets */; };
 		AF0FDD822012FFB800ACEBED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF0FDD802012FFB800ACEBED /* LaunchScreen.storyboard */; };
 		AF0FDD8D2012FFB800ACEBED /* USPS_TrackingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0FDD8C2012FFB800ACEBED /* USPS_TrackingTests.swift */; };
 		AF0FDD982012FFB800ACEBED /* USPS_TrackingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0FDD972012FFB800ACEBED /* USPS_TrackingUITests.swift */; };
+		AF95235E2014858B00217795 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = AF9523592014858B00217795 /* Fonts */; };
+		AF95235F2014858B00217795 /* DemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF95235A2014858B00217795 /* DemoCell.swift */; };
+		AF9523602014858B00217795 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF95235B2014858B00217795 /* MainTableViewController.swift */; };
+		AF952362201499F000217795 /* USPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF952361201499F000217795 /* USPS.swift */; };
+		D6C8E211CB1FCA22D18E321C /* Pods_USPS_TrackingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CAB1DB0337A7E0AC5727579 /* Pods_USPS_TrackingUITests.framework */; };
+		E6F241DEC784710DE11BE6D2 /* Pods_USPS_Tracking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52450A8AF6E2619FDE64063E /* Pods_USPS_Tracking.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +40,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0EB0F236767299F7A580D6C4 /* Pods-USPS TrackingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USPS TrackingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-USPS TrackingTests/Pods-USPS TrackingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		127C40E83DCEFD8BED39B464 /* Pods-USPS Tracking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USPS Tracking.release.xcconfig"; path = "Pods/Target Support Files/Pods-USPS Tracking/Pods-USPS Tracking.release.xcconfig"; sourceTree = "<group>"; };
+		13511A91CB94C01EB9CBA1CB /* Pods-USPS TrackingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USPS TrackingUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-USPS TrackingUITests/Pods-USPS TrackingUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		52450A8AF6E2619FDE64063E /* Pods_USPS_Tracking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USPS_Tracking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		875214CA51A67600B70AD6AD /* Pods-USPS TrackingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USPS TrackingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-USPS TrackingTests/Pods-USPS TrackingTests.release.xcconfig"; sourceTree = "<group>"; };
+		8C5095099BDA81EFD5E61D11 /* Pods-USPS TrackingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USPS TrackingUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-USPS TrackingUITests/Pods-USPS TrackingUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8CAB1DB0337A7E0AC5727579 /* Pods_USPS_TrackingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USPS_TrackingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0FDD742012FFB800ACEBED /* USPS Tracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "USPS Tracking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0FDD772012FFB800ACEBED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AF0FDD792012FFB800ACEBED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AF0FDD7C2012FFB800ACEBED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AF0FDD7E2012FFB800ACEBED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF0FDD812012FFB800ACEBED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +59,12 @@
 		AF0FDD932012FFB800ACEBED /* USPS TrackingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "USPS TrackingUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0FDD972012FFB800ACEBED /* USPS_TrackingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USPS_TrackingUITests.swift; sourceTree = "<group>"; };
 		AF0FDD992012FFB800ACEBED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF9523592014858B00217795 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
+		AF95235A2014858B00217795 /* DemoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCell.swift; sourceTree = "<group>"; };
+		AF95235B2014858B00217795 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		AF952361201499F000217795 /* USPS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USPS.swift; sourceTree = "<group>"; };
+		E86D2856915C25CF2C337056 /* Pods-USPS Tracking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USPS Tracking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-USPS Tracking/Pods-USPS Tracking.debug.xcconfig"; sourceTree = "<group>"; };
+		F9353DD73133939B03EA36A7 /* Pods_USPS_TrackingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USPS_TrackingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6F241DEC784710DE11BE6D2 /* Pods_USPS_Tracking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26A492828944CD9ECF9A3FCA /* Pods_USPS_TrackingTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +88,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6C8E211CB1FCA22D18E321C /* Pods_USPS_TrackingUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		701250EEAE97C46ED25C3390 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E86D2856915C25CF2C337056 /* Pods-USPS Tracking.debug.xcconfig */,
+				127C40E83DCEFD8BED39B464 /* Pods-USPS Tracking.release.xcconfig */,
+				0EB0F236767299F7A580D6C4 /* Pods-USPS TrackingTests.debug.xcconfig */,
+				875214CA51A67600B70AD6AD /* Pods-USPS TrackingTests.release.xcconfig */,
+				13511A91CB94C01EB9CBA1CB /* Pods-USPS TrackingUITests.debug.xcconfig */,
+				8C5095099BDA81EFD5E61D11 /* Pods-USPS TrackingUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AF0FDD6B2012FFB700ACEBED = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +115,8 @@
 				AF0FDD8B2012FFB800ACEBED /* USPS TrackingTests */,
 				AF0FDD962012FFB800ACEBED /* USPS TrackingUITests */,
 				AF0FDD752012FFB800ACEBED /* Products */,
+				701250EEAE97C46ED25C3390 /* Pods */,
+				DB12287CC46F0224D5ACE7E7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +133,15 @@
 		AF0FDD762012FFB800ACEBED /* USPS Tracking */ = {
 			isa = PBXGroup;
 			children = (
-				AF0FDD772012FFB800ACEBED /* AppDelegate.swift */,
-				AF0FDD792012FFB800ACEBED /* ViewController.swift */,
 				AF0FDD7B2012FFB800ACEBED /* Main.storyboard */,
+				AF952361201499F000217795 /* USPS.swift */,
+				AF95235B2014858B00217795 /* MainTableViewController.swift */,
+				AF95235A2014858B00217795 /* DemoCell.swift */,
+				AF0FDD772012FFB800ACEBED /* AppDelegate.swift */,
 				AF0FDD7E2012FFB800ACEBED /* Assets.xcassets */,
 				AF0FDD802012FFB800ACEBED /* LaunchScreen.storyboard */,
 				AF0FDD832012FFB800ACEBED /* Info.plist */,
+				AF9523592014858B00217795 /* Fonts */,
 			);
 			path = "USPS Tracking";
 			sourceTree = "<group>";
@@ -125,6 +164,16 @@
 			path = "USPS TrackingUITests";
 			sourceTree = "<group>";
 		};
+		DB12287CC46F0224D5ACE7E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52450A8AF6E2619FDE64063E /* Pods_USPS_Tracking.framework */,
+				F9353DD73133939B03EA36A7 /* Pods_USPS_TrackingTests.framework */,
+				8CAB1DB0337A7E0AC5727579 /* Pods_USPS_TrackingUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +181,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF0FDD9C2012FFB800ACEBED /* Build configuration list for PBXNativeTarget "USPS Tracking" */;
 			buildPhases = (
+				854424DF9468E2D185661E47 /* [CP] Check Pods Manifest.lock */,
 				AF0FDD702012FFB800ACEBED /* Sources */,
 				AF0FDD712012FFB800ACEBED /* Frameworks */,
 				AF0FDD722012FFB800ACEBED /* Resources */,
+				B37AEB00832AB43D5DB64B54 /* [CP] Embed Pods Frameworks */,
+				3488F1A35BC2F2900D58A005 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +201,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF0FDD9F2012FFB800ACEBED /* Build configuration list for PBXNativeTarget "USPS TrackingTests" */;
 			buildPhases = (
+				3C2B3E000B2BD9F89A18C9A0 /* [CP] Check Pods Manifest.lock */,
 				AF0FDD842012FFB800ACEBED /* Sources */,
 				AF0FDD852012FFB800ACEBED /* Frameworks */,
 				AF0FDD862012FFB800ACEBED /* Resources */,
+				5D60C582992DC583D01B6D5D /* [CP] Embed Pods Frameworks */,
+				70944BE34CEA05F024BC9F6B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +222,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF0FDDA22012FFB800ACEBED /* Build configuration list for PBXNativeTarget "USPS TrackingUITests" */;
 			buildPhases = (
+				263673AA1F441BD3E687EC96 /* [CP] Check Pods Manifest.lock */,
 				AF0FDD8F2012FFB800ACEBED /* Sources */,
 				AF0FDD902012FFB800ACEBED /* Frameworks */,
 				AF0FDD912012FFB800ACEBED /* Resources */,
+				DA1E2EDFAD50E6F6F610ED82 /* [CP] Embed Pods Frameworks */,
+				2A854B7CC66931B8F3D11D1F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -234,6 +292,7 @@
 			files = (
 				AF0FDD822012FFB800ACEBED /* LaunchScreen.storyboard in Resources */,
 				AF0FDD7F2012FFB800ACEBED /* Assets.xcassets in Resources */,
+				AF95235E2014858B00217795 /* Fonts in Resources */,
 				AF0FDD7D2012FFB800ACEBED /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,12 +313,170 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		263673AA1F441BD3E687EC96 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-USPS TrackingUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2A854B7CC66931B8F3D11D1F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-USPS TrackingUITests/Pods-USPS TrackingUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3488F1A35BC2F2900D58A005 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-USPS Tracking/Pods-USPS Tracking-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C2B3E000B2BD9F89A18C9A0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-USPS TrackingTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D60C582992DC583D01B6D5D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-USPS TrackingTests/Pods-USPS TrackingTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		70944BE34CEA05F024BC9F6B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-USPS TrackingTests/Pods-USPS TrackingTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		854424DF9468E2D185661E47 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-USPS Tracking-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B37AEB00832AB43D5DB64B54 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-USPS Tracking/Pods-USPS Tracking-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SWXMLHash/SWXMLHash.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FoldingCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWXMLHash.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-USPS Tracking/Pods-USPS Tracking-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA1E2EDFAD50E6F6F610ED82 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-USPS TrackingUITests/Pods-USPS TrackingUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AF0FDD702012FFB800ACEBED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF0FDD7A2012FFB800ACEBED /* ViewController.swift in Sources */,
+				AF952362201499F000217795 /* USPS.swift in Sources */,
+				AF95235F2014858B00217795 /* DemoCell.swift in Sources */,
+				AF9523602014858B00217795 /* MainTableViewController.swift in Sources */,
 				AF0FDD782012FFB800ACEBED /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +641,7 @@
 		};
 		AF0FDD9D2012FFB800ACEBED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E86D2856915C25CF2C337056 /* Pods-USPS Tracking.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -439,6 +657,7 @@
 		};
 		AF0FDD9E2012FFB800ACEBED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 127C40E83DCEFD8BED39B464 /* Pods-USPS Tracking.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -454,6 +673,7 @@
 		};
 		AF0FDDA02012FFB800ACEBED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0EB0F236767299F7A580D6C4 /* Pods-USPS TrackingTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -471,6 +691,7 @@
 		};
 		AF0FDDA12012FFB800ACEBED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 875214CA51A67600B70AD6AD /* Pods-USPS TrackingTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -488,6 +709,7 @@
 		};
 		AF0FDDA32012FFB800ACEBED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13511A91CB94C01EB9CBA1CB /* Pods-USPS TrackingUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -504,6 +726,7 @@
 		};
 		AF0FDDA42012FFB800ACEBED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C5095099BDA81EFD5E61D11 /* Pods-USPS TrackingUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
