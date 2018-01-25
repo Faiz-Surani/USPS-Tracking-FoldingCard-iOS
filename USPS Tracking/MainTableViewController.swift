@@ -29,7 +29,10 @@ class MainTableViewController: UITableViewController {
     let numberOfRows = 10
     var cellHeights: [CGFloat] = []
     let USPSTracker = USPS()
-
+    
+    var trackingInfoInTable = [TrackingInfo]()
+    var trackingNumbersInTable = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -37,7 +40,6 @@ class MainTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(USPSTracker.getTrackingInfo("9400111699000478356043"))
     }
 
     private func setup() {
@@ -45,10 +47,18 @@ class MainTableViewController: UITableViewController {
         tableView.estimatedRowHeight = closedCellHeight
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Blurred Blue"))
+        
+        trackingNumbersInTable.append("9400115901472857042449")
+        trackingNumbersInTable.append("9400111699000478356043")
+    }
+    
+    public func refreshTable() {
+        
+        
     }
 
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return 10
+        return trackingInfoInTable.count
     }
 
     override func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

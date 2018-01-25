@@ -7,25 +7,34 @@
 //
 
 import Foundation
-import Alamofire
 import SWXMLHash
 
 class USPS {
-    var unparsedXml:String?
-    var parsedXml : XMLIndexer?
-    let group = DispatchGroup()
+    var parsedXml: XMLIndexer?
     
-    public func getTrackingInfo(_ trackingNumber: String) -> TrackingInfo {
-        group.enter()
-        DispatchQueue.global(qos: DispatchQoS.background.qosClass).async {
-            self.callRestService(requestUrl: self.getRequest(trackingNumber))
+    public func getTrackingInfo(_ trackingNumber: String, completion: @escaping (TrackingInfo?, Error?) -> Void) {
+        self.callRestService(requestUrl: self.getRequest(trackingNumber)) { data, response, error in
+            guard error == nil, let returnData = data else {
+                completion(nil, error)
+                return
+            }
+            self.parsedXml = SWXMLHash.parse(returnData)["TrackResponse"]["TrackInfo"]
+            let finishedTrackingInfo = self.populateTrackingInfo(trackingNumber)
+            completion(finishedTrackingInfo, nil)
         }
-        group.wait()
-        parsedXml = SWXMLHash.parse(unparsedXml!)["TrackResponse"]["TrackInfo"]
-        return populateTrackingInfo(trackingNumber: trackingNumber)
     }
     
-    fileprivate func populateTrackingInfo(trackingNumber: String) -> TrackingInfo {
+    public func callRestService(requestUrl:String, completion: @escaping (Data?, URLResponse?, Error?) -> Void) -> Void
+    {
+        var request = URLRequest(url: URL(string: requestUrl)!)
+        request.httpMethod = "GET"
+        
+        let session = URLSession.shared
+        let task = session.dataTask(with: request, completionHandler: completion)
+        task.resume()
+    }
+    
+    fileprivate func populateTrackingInfo(_ trackingNumber: String) -> TrackingInfo {
         let trackingData = TrackingInfo()
         trackingData.trackingNumber = trackingNumber
         if parsedXml!["PredictedDeliveryDate"].element?.text != "" {
@@ -81,23 +90,6 @@ class USPS {
         let APIUsername = "731PERSO0590"
         let trackingXmlLink = "http://production.shippingapis.com/ShippingAPI.dll?API=TrackV2&XML=%3CTrackFieldRequest%20USERID=%22" + APIUsername + "%22%3E%20%3CRevision%3E1%3C/Revision%3E%20%3CClientIp%3E127.0.0.1%3C/ClientIp%3E%20%3CSourceId%3EFaiz%20Surani%3C/SourceId%3E%20%3CTrackID%20ID=%22" + trackingNumber + "%22%3E%20%3CDestinationZipCode%3E66666%3C/DestinationZipCode%3E%20%3CMailingDate%3E2010-01-01%3C/MailingDate%3E%20%3C/TrackID%3E%20%3C/TrackFieldRequest%3E"
         return trackingXmlLink
-    }
-    
-    public func callRestService(requestUrl:String) ->Void
-    {
-        var request = URLRequest(url: URL(string: requestUrl)!)
-        request.httpMethod = "GET"
-        
-        let session = URLSession.shared
-        let task = session.dataTask(with: request, completionHandler: serviceCallback)
-        
-        task.resume()
-    }
-    
-    private func serviceCallback(data:Data? , response:URLResponse? , error:Error? ) -> Void
-    {
-        unparsedXml = String(data: data!, encoding: .utf8)
-        self.group.leave()
     }
  
 }
