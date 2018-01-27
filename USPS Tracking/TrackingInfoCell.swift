@@ -9,7 +9,7 @@ import FoldingCell
 import UIKit
 import MapKit
 
-class DemoCell: FoldingCell {
+class TrackingInfoCell: FoldingCell {
 
     @IBOutlet weak var closedCellTitle: UILabel!
     @IBOutlet weak var transitOrDeliveryIcon: UIImageView!
@@ -19,6 +19,7 @@ class DemoCell: FoldingCell {
     @IBOutlet weak var closedDaysUntil: UILabel!
     @IBOutlet weak var closedExpectedDeliveryDate: UILabel!
     @IBOutlet weak var closedExpectedDeliveryTime: UILabel!
+    @IBOutlet weak var closedExpectedOnLabel: UILabel!
     
     @IBOutlet weak var openCellTitle: UILabel!
     @IBOutlet weak var openMapView: MKMapView!

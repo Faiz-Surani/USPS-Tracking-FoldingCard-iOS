@@ -24,23 +24,26 @@ class USPS {
         }
     }
     
-    public func callRestService(requestUrl:String, completion: @escaping (Data?, URLResponse?, Error?) -> Void) -> Void
+    fileprivate func callRestService(requestUrl:String, completion: @escaping (Data?, URLResponse?, Error?) -> Void) -> Void
     {
         var request = URLRequest(url: URL(string: requestUrl)!)
         request.httpMethod = "GET"
-        
         let session = URLSession.shared
         let task = session.dataTask(with: request, completionHandler: completion)
         task.resume()
     }
     
     fileprivate func populateTrackingInfo(_ trackingNumber: String) -> TrackingInfo {
-        let trackingData = TrackingInfo()
+        var trackingData = TrackingInfo()
         trackingData.trackingNumber = trackingNumber
-        if parsedXml!["PredictedDeliveryDate"].element?.text != "" {
+        if parsedXml!["PredictedDeliveryDate"].element?.text != nil {
             trackingData.estimatedDeliveryDate = parseDate((parsedXml!["PredictedDeliveryDate"].element?.text)!, dateType: "Estimate")
         }
+        else if parsedXml!["ExpectedDeliveryDate"].element?.text != nil {
+            trackingData.estimatedDeliveryDate = parseDate((parsedXml!["ExpectedDeliveryDate"].element?.text)!, dateType: "Estimate")
+        }
         trackingData.trackingStatus = constructStatus()
+        trackingData.trackingUpdates = populateTrackingUpdateArray()
         trackingData.destinationZipCode = parsedXml!["DestinationZip"].element?.text ?? ""
         return trackingData
     }
@@ -48,11 +51,14 @@ class USPS {
     fileprivate func populateTrackingUpdateArray() -> [TrackingUpdate] {
         var trackingUpdateArray = [TrackingUpdate]()
         trackingUpdateArray.append(constructTrackingUpdate(parsedXml!["TrackSummary"]))
+        for trackUpdate in parsedXml!["TrackDetail"].all {
+            trackingUpdateArray.append(constructTrackingUpdate(trackUpdate))
+        }
         return trackingUpdateArray
     }
     
     fileprivate func constructTrackingUpdate(_ xmlOfUpdate: XMLIndexer) -> TrackingUpdate {
-        let trackingUpdate = TrackingUpdate()
+        var trackingUpdate = TrackingUpdate()
         trackingUpdate.update = xmlOfUpdate["Event"].element?.text ?? "Error: Not Found"
         let city = xmlOfUpdate["EventCity"].element?.text ?? "Error: Not Found"
         let state = xmlOfUpdate["EventState"].element?.text
@@ -63,18 +69,20 @@ class USPS {
         else {
             trackingUpdate.location = city
         }
+        let dateString = (xmlOfUpdate["EventTime"].element?.text)! + " " + (xmlOfUpdate["EventDate"].element?.text)!
+        trackingUpdate.date = parseDate(dateString, dateType: "Event")
         return trackingUpdate
     }
     
     fileprivate func constructStatus() -> TrackingStatus {
-        let trackingStatus = TrackingStatus()
+        var trackingStatus = TrackingStatus()
         trackingStatus.status = (parsedXml!["Status"].element?.text)  ?? ""
         trackingStatus.statusCategory = (parsedXml!["StatusCategory"].element?.text) ?? ""
         trackingStatus.statusSummary = (parsedXml!["StatusSummary"].element?.text) ?? ""
         return trackingStatus
     }
     
-    fileprivate func parseDate(_ date: String, dateType: String) -> Date {
+    public func parseDate(_ date: String, dateType: String) -> Date {
         let dateFormatter = DateFormatter()
         if dateType == "Estimate" {
             dateFormatter.dateFormat = "MMMM d, yyyy"
@@ -94,7 +102,8 @@ class USPS {
  
 }
 
-class TrackingInfo {
+struct TrackingInfo {
+    var name = ""
     var trackingNumber = ""
     var estimatedDeliveryDate : Date?
     var trackingUpdates = [TrackingUpdate]()
@@ -102,15 +111,50 @@ class TrackingInfo {
     var destinationZipCode = ""
 }
 
-class TrackingUpdate {
+struct TrackingUpdate {
     var date = Date()
     var update = ""
     var location = ""
 }
 
-class TrackingStatus {
+struct TrackingStatus {
     var status = ""
     var statusSummary = ""
+    var statusCategory = ""
+}
+
+struct UserEnteredInfo {
+    var name = ""
+    var sender = ""
+    var info = ""
+}
+
+class StoredTrackingData: NSObject, NSCoding {
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(trackingNumber, forKey: "trackingNumber")
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(sender, forKey: "sender")
+        aCoder.encode(recentUpdate, forKey: "recentUpdate")
+        aCoder.encode(statusCategory, forKey: "statusCategory")
+    }
+    
+    required convenience init(coder aDecoder: NSCoder) {
+        let trackingNumber = aDecoder.decodeObject(forKey: "trackingNumber") as! String
+        let name = aDecoder.decodeObject(forKey: "name") as! String
+        let sender =  aDecoder.decodeObject(forKey: "sender") as! String
+        let recentUpdate = aDecoder.decodeObject(forKey: "recentUpdate") as! String
+        let statusCategory = aDecoder.decodeObject(forKey: "statusCategory") as! String
+        self.init(trackingNumber: trackingNumber, name: name, sender: sender, recentUpdate: recentUpdate, statusCategory: statusCategory)
+    }
+    
+    init(trackingNumber: String, name: String, sender: String, recentUpdate: String, statusCategory: String) {
+        
+    }
+    
+    var trackingNumber = ""
+    var name = ""
+    var sender = ""
+    var recentUpdate = ""
     var statusCategory = ""
 }
 

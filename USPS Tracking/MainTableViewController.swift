@@ -1,37 +1,35 @@
 //
-// MainTableViewController.swift
+//  MainTableViewController.swift
+//  USPS Tracking
 //
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
+//  Created by Faiz Surani on 1/20/18.
+//  Copyright © 2018 Faiz Surani. All rights reserved.
 //
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
 
-import FoldingCell
 import UIKit
+import FoldingCell
+import Floaty
 
 class MainTableViewController: UITableViewController {
 
     let closedCellHeight: CGFloat = 180
     let openedCellHeight: CGFloat = 482
-    let numberOfRows = 10
     var cellHeights: [CGFloat] = []
-    let USPSTracker = USPS()
     
     var trackingInfoInTable = [TrackingInfo]()
-    var trackingNumbersInTable = [String]()
+    var trackingNumbersInTable = ["9400115901472857042449", "9400111699000478356043", "9361289711090102237076"]
+    
+    var storedTrackingData: [StoredTrackingData] {
+        get {
+            if let storedData = UserDefaults.standard.object(forKey: "storedTrackingData") {
+                return storedData as! [StoredTrackingData]
+            }
+            return [StoredTrackingData]()
+        }
+        set {
+            UserDefaults.standard.set(storedTrackingData, forKey: "storedTrackingData")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,28 +39,121 @@ class MainTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
+    
 
     private func setup() {
-        cellHeights = Array(repeating: closedCellHeight, count: numberOfRows)
+        menuButtonSetup()
+        cellHeights = Array(repeating: closedCellHeight, count: trackingNumbersInTable.count)
         tableView.estimatedRowHeight = closedCellHeight
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Blurred Blue"))
-        
-        trackingNumbersInTable.append("9400115901472857042449")
-        trackingNumbersInTable.append("9400111699000478356043")
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+        refreshTable()
     }
     
-    public func refreshTable() {
+    private func menuButtonSetup() {
+        Floaty.global.button.buttonImage = #imageLiteral(resourceName: "Menu Icon")
+        Floaty.global.button.addItem("Add Tracking", icon: #imageLiteral(resourceName: "Add Icon")) { floatyItem in
+            print("test")
+        }
+        Floaty.global.button.addItem("Scan Barcode", icon: #imageLiteral(resourceName: "Scan Barcode Icon")) { floatyItem in
+            
+        }
+        Floaty.global.button.rotationDegrees = 90
+        Floaty.global.show()
+    }
+    
+    @objc public func refreshTable() {
+        for i in 0 ..< trackingNumbersInTable.count {
+            let tracker = USPS()
+            tracker.getTrackingInfo(trackingNumbersInTable[i]) { trackingInfo, error in
+                if error != nil {
+                    print("Error: Refresh Failed On Row " + String(i))
+                }
+                else { DispatchQueue.main.async {
+                    if i >= self.trackingInfoInTable.count {
+                        self.trackingInfoInTable.append(trackingInfo!)
+                    }
+                    else {
+                        self.trackingInfoInTable[i] = trackingInfo!
+                    }
+                    self.updateCell(self.tableView.cellForRow(at: IndexPath(row: i, section: 0)) as! TrackingInfoCell, trackingInfo!, row: i)
+                    }
+                }
+            }
+            
+        }
+        tableView.refreshControl?.endRefreshing()
+    }
+    
+    public func setCells() {
+        for i in 0 ..< storedTrackingData.count {
+            let cell = tableView.cellForRow(at: IndexPath(row: i, section: 0)) as! TrackingInfoCell
+            cell.closedCellTitle.text = storedTrackingData[i].name
+            cell.openCellTitle.text = storedTrackingData[i].name
+            cell.trackingNumberButton.setTitle(storedTrackingData[i].trackingNumber, for: .normal)
+            cell.closedStatusUpdate.text = storedTrackingData[i].recentUpdate
+        }
+    }
+    
+    public func updateCell(_ cell: TrackingInfoCell, _ trackingInfo: TrackingInfo, row: Int) {
+        let mostRecentStatus = trackingInfo.trackingUpdates[0]
         
+        let daysUntilValue = daysUntil(trackingInfo.estimatedDeliveryDate ?? Date())
+        var daysUntilString = ""
+        if (trackingInfo.estimatedDeliveryDate != nil) {
+            if daysUntilValue > 0 { daysUntilString = "IN " + String(daysUntilValue) + " DAYS" }
+            else if daysUntilValue < 0 { daysUntilString = String(abs(daysUntilValue)) + " DAYS AGO" }
+            else { daysUntilString = "TODAY" }
+        }
         
+        DispatchQueue.main.async {
+            cell.trackingNumberButton.setTitle(trackingInfo.trackingNumber, for: .normal)
+            let recentStatusUpdate = self.dateToString(mostRecentStatus.date, type: "Event") + "\n" + mostRecentStatus.update + "\n" + mostRecentStatus.location
+            cell.closedStatusUpdate.text = recentStatusUpdate
+            cell.closedExpectedDeliveryDate.text = trackingInfo.estimatedDeliveryDate != nil ? self.dateToString(trackingInfo.estimatedDeliveryDate!, type: "Estimate") : "N/A"
+            cell.closedDaysUntil.text = daysUntilString
+            
+            if trackingInfo.trackingStatus.statusCategory == "Delivered" {
+                cell.sideOfClosedCellView.backgroundColor = UIColor(red: 34/255.0, green: 129/255.0, blue: 39/255.0, alpha: 1)
+                cell.closedExpectedOnLabel.text = "DELIVERED ON"
+                cell.transitOrDeliveryIcon.image =  #imageLiteral(resourceName: "Delivered Icon")
+                cell.closedExpectedDeliveryTime.text = ""
+            }
+            else {
+                cell.closedExpectedOnLabel.text = "EXPECTED ON"
+                cell.closedExpectedDeliveryTime.text = "BY 8:00 PM"
+            }
+            if trackingInfo.estimatedDeliveryDate == nil {
+                cell.closedExpectedOnLabel.text = ""
+                cell.closedExpectedDeliveryTime.text = ""
+            }
+        }
+    }
+    
+    public func daysUntil(_ date: Date) -> Int {
+        let calendar = Calendar.current
+        let startOfDay1 = calendar.startOfDay(for: Date())
+        let startOfDay2 = calendar.startOfDay(for: date)
+        let components = calendar.dateComponents([.day], from: startOfDay1, to: startOfDay2)
+        return components.day!
     }
 
+    public func dateToString(_ date: Date, type: String) -> String {
+        let dateFormatter = DateFormatter()
+        if type == "Event" { dateFormatter.dateFormat = "M/d/yy 'at' h:mm a" }
+        else if type == "Estimate" { dateFormatter.dateFormat = "M/d" }
+        return dateFormatter.string(from: date)
+    }
+    
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return trackingInfoInTable.count
+        return trackingNumbersInTable.count
     }
 
     override func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard case let cell as DemoCell = cell else {
+        guard case let cell as TrackingInfoCell = cell else {
             return
         }
 
@@ -112,4 +203,5 @@ class MainTableViewController: UITableViewController {
             tableView.endUpdates()
         }, completion: nil)
     }
+    
 }
