@@ -148,7 +148,11 @@ class StoredTrackingData: NSObject, NSCoding {
     }
     
     init(trackingNumber: String, name: String, sender: String, recentUpdate: String, statusCategory: String) {
-        
+        self.trackingNumber = trackingNumber
+        self.name = name
+        self.sender = sender
+        self.recentUpdate = recentUpdate
+        self.statusCategory = statusCategory
     }
     
     var trackingNumber = ""

@@ -9,27 +9,32 @@
 import UIKit
 import FoldingCell
 import Floaty
+import Presentr
 
 class MainTableViewController: UITableViewController {
 
     let closedCellHeight: CGFloat = 180
     let openedCellHeight: CGFloat = 482
     var cellHeights: [CGFloat] = []
+    let presenter = Presentr(presentationType: .alert)
     
     var trackingInfoInTable = [TrackingInfo]()
-    var trackingNumbersInTable = ["9400115901472857042449", "9400111699000478356043", "9361289711090102237076"]
     
-    var storedTrackingData: [StoredTrackingData] {
+    var storedTrackingData: [StoredTrackingData] = NSKeyedUnarchiver.unarchiveObject(with: (UserDefaults.standard.object(forKey: "storedTrackingData") as? Data)!) as? [StoredTrackingData] ?? []
+    /* {
         get {
-            if let storedData = UserDefaults.standard.object(forKey: "storedTrackingData") {
-                return storedData as! [StoredTrackingData]
+            if let storedData = UserDefaults.standard.object(forKey: "storedTrackingData") as? Data {
+                let storedDataArr: [StoredTrackingData] = NSKeyedUnarchiver.unarchiveObject(with: storedData) as! [StoredTrackingData]
+                return storedDataArr
             }
-            return [StoredTrackingData]()
+            return []
         }
         set {
-            UserDefaults.standard.set(storedTrackingData, forKey: "storedTrackingData")
+            let storedData = NSKeyedArchiver.archivedData(withRootObject: storedTrackingData)
+            UserDefaults.standard.set(storedData, forKey: "storedTrackingData")
         }
     }
+ */
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +48,7 @@ class MainTableViewController: UITableViewController {
 
     private func setup() {
         menuButtonSetup()
-        cellHeights = Array(repeating: closedCellHeight, count: trackingNumbersInTable.count)
+        cellHeights = Array(repeating: closedCellHeight, count: storedTrackingData.count)
         tableView.estimatedRowHeight = closedCellHeight
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Blurred Blue"))
@@ -56,7 +61,8 @@ class MainTableViewController: UITableViewController {
     private func menuButtonSetup() {
         Floaty.global.button.buttonImage = #imageLiteral(resourceName: "Menu Icon")
         Floaty.global.button.addItem("Add Tracking", icon: #imageLiteral(resourceName: "Add Icon")) { floatyItem in
-            print("test")
+            let addView = self.storyboard!.instantiateViewController(withIdentifier: "AddTrackingViewController")
+            self.performSegue(withIdentifier: "showAddView", sender: nil)
         }
         Floaty.global.button.addItem("Scan Barcode", icon: #imageLiteral(resourceName: "Scan Barcode Icon")) { floatyItem in
             
@@ -66,9 +72,9 @@ class MainTableViewController: UITableViewController {
     }
     
     @objc public func refreshTable() {
-        for i in 0 ..< trackingNumbersInTable.count {
+        for i in 0 ..< storedTrackingData.count {
             let tracker = USPS()
-            tracker.getTrackingInfo(trackingNumbersInTable[i]) { trackingInfo, error in
+            tracker.getTrackingInfo(storedTrackingData[i].trackingNumber) { trackingInfo, error in
                 if error != nil {
                     print("Error: Refresh Failed On Row " + String(i))
                 }
@@ -90,11 +96,15 @@ class MainTableViewController: UITableViewController {
     
     public func setCells() {
         for i in 0 ..< storedTrackingData.count {
+            let storedDataForRow = storedTrackingData[i]
             let cell = tableView.cellForRow(at: IndexPath(row: i, section: 0)) as! TrackingInfoCell
-            cell.closedCellTitle.text = storedTrackingData[i].name
-            cell.openCellTitle.text = storedTrackingData[i].name
-            cell.trackingNumberButton.setTitle(storedTrackingData[i].trackingNumber, for: .normal)
-            cell.closedStatusUpdate.text = storedTrackingData[i].recentUpdate
+            cell.closedCellTitle.text = storedDataForRow.name
+            cell.openCellTitle.text = storedDataForRow.name
+            cell.trackingNumberButton.setTitle(storedDataForRow.trackingNumber, for: .normal)
+            cell.closedStatusUpdate.text = storedDataForRow.recentUpdate
+            if storedDataForRow.statusCategory == "Delivered" {
+                cell.sideOfClosedCellView.backgroundColor = UIColor(red: 34/255.0, green: 129/255.0, blue: 39/255.0, alpha: 1)
+            }
         }
     }
     
@@ -112,6 +122,8 @@ class MainTableViewController: UITableViewController {
         DispatchQueue.main.async {
             cell.trackingNumberButton.setTitle(trackingInfo.trackingNumber, for: .normal)
             let recentStatusUpdate = self.dateToString(mostRecentStatus.date, type: "Event") + "\n" + mostRecentStatus.update + "\n" + mostRecentStatus.location
+            self.storedTrackingData[row].recentUpdate = recentStatusUpdate
+            self.storedTrackingData[row].statusCategory = trackingInfo.trackingStatus.statusCategory
             cell.closedStatusUpdate.text = recentStatusUpdate
             cell.closedExpectedDeliveryDate.text = trackingInfo.estimatedDeliveryDate != nil ? self.dateToString(trackingInfo.estimatedDeliveryDate!, type: "Estimate") : "N/A"
             cell.closedDaysUntil.text = daysUntilString
@@ -149,7 +161,7 @@ class MainTableViewController: UITableViewController {
     }
     
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return trackingNumbersInTable.count
+        return storedTrackingData.count
     }
 
     override func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

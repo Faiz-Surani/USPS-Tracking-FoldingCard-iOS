@@ -19,8 +19,10 @@ class AddTrackingViewController: UIViewController {
     }
     
     @IBAction func addButton(_ sender: Any) {
-        let storedTrackingData = StoredTrackingData(trackingNumber: trackingNumberTextField.text!, name: titleTextField.text!, sender: senderTextField.text!, recentUpdate: "", statusCategory: "")
-        
+        let storedTracking = StoredTrackingData(trackingNumber: trackingNumberTextField.text!, name: titleTextField.text!, sender: senderTextField.text!, recentUpdate: "", statusCategory: "")
+        let trackingTableController = storyboard!.instantiateViewController(withIdentifier: "MainTableViewController") as! MainTableViewController
+        trackingTableController.storedTrackingData.append(storedTracking)
+        print(trackingTableController.storedTrackingData.count)
     }
     
     @IBAction func scanButton(_ sender: Any) {
